@@ -1,5 +1,7 @@
 SampleApp::Application.routes.draw do
-  devise_for :users
+  get "users/show"
+  devise_for  :users
+  resources :users, only: [:show]
   root  'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
@@ -58,4 +60,6 @@ SampleApp::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :users
+
 end
